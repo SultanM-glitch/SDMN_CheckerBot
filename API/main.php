@@ -1,29 +1,29 @@
 <?php
 
 
-include __DIR__."/config/config.php";
-include __DIR__."/config/variables.php";
-include __DIR__."/functions/bot.php";
-include __DIR__."/functions/functions.php";
-include __DIR__."/functions/db.php";
+include __DIR__."/../config/config.php";
+include __DIR__."/../config/variables.php";
+include __DIR__."/../functions/bot.php";
+include __DIR__."/../functions/functions.php";
+include __DIR__."/../functions/db.php";
 
 
 date_default_timezone_set($config['timeZone']);
 
 
 ////Modules
-include __DIR__."/modules/admin.php";
-include __DIR__."/modules/skcheck.php";
-include __DIR__."/modules/binlookup.php";
-include __DIR__."/modules/iban.php";
-include __DIR__."/modules/stats.php";
-include __DIR__."/modules/me.php";
-include __DIR__."/modules/apikey.php";
+include __DIR__."/../modules/admin.php";
+include __DIR__."/../modules/skcheck.php";
+include __DIR__."/../modules/binlookup.php";
+include __DIR__."/../modules/iban.php";
+include __DIR__."/../modules/stats.php";
+include __DIR__."/../modules/me.php";
+include __DIR__."/../modules/apikey.php";
 
 
-include __DIR__."/modules/checker/ss.php";
-include __DIR__."/modules/checker/schk.php";
-include __DIR__."/modules/checker/sm.php";
+include __DIR__."/../modules/checker/ss.php";
+include __DIR__."/../modules/checker/schk.php";
+include __DIR__."/../modules/checker/sm.php";
 
 
 
