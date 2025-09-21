@@ -8,6 +8,7 @@ A Telegram CC Checker Bot with hella lotta features.
 
 - **Admin Panel**
     - Ban a user
+
     - Unban a user
     - Mute a user
     - Unmute a user
