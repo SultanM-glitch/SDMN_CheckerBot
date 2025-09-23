@@ -6,19 +6,31 @@ include __DIR__."/../config/variables.php";
 include __DIR__."/../config/config.php";
 
 ///////////==[DB Connection]==///////////
-$conn = mysqli_connect($config['db']['hostname'],$config['db']['username'],$config['db']['password'],$config['db']['database']);
+// Hardcoded Vercel credentials (as provided)
+$host = 'sql12.freesqldatabase.com';
+$user = 'sql12799427';
+$pass = '2dm5bA1FNZ';
+$db   = 'sql12799427';
+$port = 3306;
+
+// Create connection
+$conn = mysqli_connect($host, $user, $pass, $db, $port);
 
 if(!$conn){
-    bot('sendmessage',[
-        'chat_id'=>$config['adminID'],
-        'text'=>"<b>🛑 DB connection Failed!
-        
-        ".json_encode($config['db'])."</b>",
-        'parse_mode'=>'html'
-        
-    ]);
+    // Log the error to Vercel logs for debugging
+    error_log("DB Connection Failed: " . mysqli_connect_error());
 
-    logsummary("<b>🛑 DB connection Failed!\n\n".json_encode($config['db'])."</b>");
+    // Attempt to send a message to the admin if bot function is available
+    if (function_exists('bot') && isset($config['adminID'])) {
+        bot('sendmessage',[
+            'chat_id'=>$config['adminID'],
+            'text'=>"<b>🛑 DB connection Failed! Error: ".mysqli_connect_error()."</b>",
+            'parse_mode'=>'html'
+        ]);
+    }
+
+    // Stop execution if DB connection fails
+    die();
 }
 
 ////////////////////////////////////////////
